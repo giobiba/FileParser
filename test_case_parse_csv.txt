@@ -1,0 +1,13 @@
+Test Scenario: Parseaza un fisier csv si detecteaza erorile
+Test Steps:
+    Ruleaza FileParser.exe
+    Utilizatorul introduce path-ul catre fisier
+    Scrie "n" in consola ca sa nu mai introduca alt path
+Prerequisites:
+    Un fisier de tip csv, in formatul (id, prenume, nume, data_angajarii)
+Expected:
+    Afisarea in consola a numarului de linii eronate, cat si indicele fiecarei linii
+Actual:
+    Cum era de asteptat
+Status:
+    Pass
