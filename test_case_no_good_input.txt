@@ -1,0 +1,14 @@
+Test Scenario: Parseaza un fisier txt si detecteaza log-urile de eroare
+Test Steps:
+    Ruleaza FileParser.exe
+    Utilizatorul introduce path-ul catre un fisier inexistent, sau cu o extensie neacceptata
+    Pe ecran ii este afisat faptul ca path-ul nu este corect.
+    Chiar daca acesta va introduce "n", programul nu se va opri.
+Prerequisites:
+    -
+Expected:
+    Programul nu se va opri pana ce utilizatorul va introduce un path corect.
+Actual:
+    Cum era de asteptat.
+Status:
+    Pass

@@ -1,0 +1,13 @@
+Test Scenario: Parseaza un fisier txt si detecteaza log-urile de eroare
+Test Steps:
+    Ruleaza FileParser.exe
+    Utilizatorul introduce path-ul catre fisier in consola
+    Scrie "n" in consola ca sa nu mai introduca alt path
+Prerequisites:
+    Un fisier de tip txt cu formatul (<Message type>: <line> <message>).
+Expected:
+    Afisarea logurile care sunt de tip error, sau care nu respecta formatul dat, cat si numarul de linii de acest tip.
+Actual:
+    Cum era de asteptat
+Status:
+    Pass
