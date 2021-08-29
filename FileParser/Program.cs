@@ -31,12 +31,14 @@ namespace FileParser
         {
             if (Path.GetExtension(path) == ".csv")
             {
-                Console.WriteLine($"Found {lines_detected.Count} mistakes in the date column, on the following lines:");
+                Console.Write($"Found {lines_detected.Count} mistakes in the date column");
             }
             else
             {
-                Console.WriteLine($"Found {lines_detected.Count} errors, on the following lines:");
+                Console.Write($"Found {lines_detected.Count} errors");
             }
+            if (lines_detected.Count == 1) Console.WriteLine(", on the following line:");
+            else if (lines_detected.Count > 1) Console.WriteLine(", on the following lines:");
 
             foreach (var k in lines_detected)
             {
@@ -101,7 +103,6 @@ namespace FileParser
                     var key = Console.ReadLine();
                     if (key == "n" && paths_read != 0) break;
                 }
-
             }
             else
             {
