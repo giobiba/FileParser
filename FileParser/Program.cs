@@ -14,11 +14,12 @@ namespace FileParser
 
         delegate bool DetectErrorLine(string[] parsed_line);
 
-        private void addPathIfValid (string path)
+        private void addPathIfValid (string path, ref uint paths_read)
         {
             if (HelperFunctions.VerifyPath(path))
             {
                 paths.Add(path);
+                paths_read += 1;
             }
             else
             {
@@ -84,6 +85,7 @@ namespace FileParser
 
         public void Run()
         {
+            uint paths_read = 0;
             // verificam daca au fost trimise argumente
             if (args.Length == 0)
             {
@@ -93,11 +95,11 @@ namespace FileParser
                 while (true)
                 {
                     path = Console.ReadLine().Trim();
-                    addPathIfValid(path);
+                    addPathIfValid(path, ref paths_read);
 
                     Console.WriteLine("Do you want to add another file path?(y/n)");
                     var key = Console.ReadLine();
-                    if (key == "n") break;
+                    if (key == "n" && paths_read != 0) break;
                 }
 
             }
@@ -107,7 +109,7 @@ namespace FileParser
                 foreach (string path in args)
                 {
                     Console.Write(path);
-                    addPathIfValid(path);
+                    addPathIfValid(path, ref paths_read);
                 }
             }
 
