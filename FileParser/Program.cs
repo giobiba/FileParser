@@ -99,9 +99,14 @@ namespace FileParser
                     path = Console.ReadLine().Trim();
                     addPathIfValid(path, ref paths_read);
 
-                    Console.WriteLine("Do you want to add another file path?(y/n)");
+                    Console.WriteLine("Do you want to add another file path?(y/n/exit))");
                     var key = Console.ReadLine();
                     if (key == "n" && paths_read != 0) break;
+                    if (key == "exit")
+                    {
+                        paths = new List<string>();
+                        break;
+                    }
                 }
             }
             else
