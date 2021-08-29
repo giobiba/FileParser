@@ -92,11 +92,12 @@ namespace FileParser
                 Console.WriteLine("Write a file path you want to read from.");
                 while (true)
                 {
-                    path = Console.ReadLine();
+                    path = Console.ReadLine().Trim();
                     addPathIfValid(path);
 
                     Console.WriteLine("Do you want to add another file path?(y/n)");
-                    if (Console.Read() == 'n') break;
+                    var key = Console.ReadLine();
+                    if (key == "n") break;
                 }
 
             }
@@ -105,6 +106,7 @@ namespace FileParser
                 // daca da, verificam fiecare path in parte sa fie in regula
                 foreach (string path in args)
                 {
+                    Console.Write(path);
                     addPathIfValid(path);
                 }
             }
@@ -114,6 +116,9 @@ namespace FileParser
                 List<uint> lines_detected = ParseFile(path);
                 PrintResults(path, lines_detected);
             }
+
+            Console.WriteLine("Press any key to exit");
+            Console.Read();
         }
     }
 }
