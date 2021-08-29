@@ -17,4 +17,8 @@
     <ProjectReference Include="..\FileParser\FileParser.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="TestData\" />
+  </ItemGroup>
+
 </Project>

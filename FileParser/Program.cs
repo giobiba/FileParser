@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FileParser
 {
-    class Program
+    public class Program
     {
         private string[] args;
         private List<string> paths = new List<string>();
@@ -44,7 +44,7 @@ namespace FileParser
             Console.WriteLine();
         }
 
-        private List<uint> ParseFile(string path)
+        public List<uint> ParseFile(string path)
         {
             DetectErrorLine validateLine;
             Parser parser;
