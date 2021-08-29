@@ -9,6 +9,7 @@ namespace FileParserTests
     [TestClass]
     public class ProgramTests
     {
+        // metoda testeaza daca parserul gaseste toate errorile din fisierul citit 
         [TestMethod]
         public void TestCsvFile()
         {
