@@ -2,6 +2,7 @@
 using FileParser;
 using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace FileParserTests
 {
@@ -11,13 +12,14 @@ namespace FileParserTests
         [TestMethod]
         public void TestCsvFile()
         {
-            string startupPath = Environment.CurrentDirectory;
-            string csv_file = startupPath + "\\TestData\\data.csv";
+            string workingDirectory = Environment.CurrentDirectory;
+            string projectDirectory = Directory.GetParent(workingDirectory).Parent.Parent.FullName; ;
+            string csv_file = projectDirectory + "\\TestData\\data.csv";
             string[] args = { csv_file };
             Program program = new Program(args);
             List<uint> expected = new List<uint>()
             {
-                3, 6, 25, 38, 50
+                3, 6, 8, 25, 38, 50
             };
 
             List<uint> actual = program.ParseFile(csv_file);
