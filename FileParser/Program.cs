@@ -19,7 +19,7 @@ namespace FileParser
             if (HelperFunctions.VerifyPath(path))
             {
                 paths.Add(path);
-                paths_read += 1;
+                paths_read++;
             }
             else
             {
@@ -66,6 +66,11 @@ namespace FileParser
             Console.WriteLine($"Reading file {Path.GetFileName(path)}\n");
 
             Parser.CreateParser(out parser, path);
+        
+            if(parser == null)
+            {
+                throw new ArgumentException("Invalid extension (not csv nor txt)");
+            }
 
             uint i = 1;
             foreach (string[] parsed_line in parser.ParseFile())

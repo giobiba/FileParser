@@ -11,15 +11,12 @@ namespace FileParser
 {
     public static class HelperFunctions
     {
-        // format chosen for validation is dd/mm/yyyy
-        public static bool isDateValid(string input)
-        {
-            return DateTime.TryParseExact(input, "dd/MM/yyyy",  new CultureInfo("ro-RO"), DateTimeStyles.None, out _);
-        }
 
         public static bool VerifyPath(string path)
         {
-            return File.Exists(path) && Path.GetExtension(path) == ".txt" || Path.GetExtension(path) == ".csv";
+            if (string.IsNullOrEmpty(path) || !(path.EndsWith(".txt") || path.EndsWith(".csv")))
+                return false;
+            return File.Exists(path) && (Path.GetExtension(path) == ".txt" || Path.GetExtension(path) == ".csv");
         }
 
         // cele doua functii de jos returneaza true daca au descoperit o eroare
@@ -35,7 +32,7 @@ namespace FileParser
             if (parsed_line.Length != 4)
                 return true;
 
-            return !HelperFunctions.isDateValid(parsed_line[3]);
+            return !DateTime.TryParseExact(parsed_line[3], "dd/MM/yyyy", new CultureInfo("ro-RO"), DateTimeStyles.None, out _);
         }
     }
 }

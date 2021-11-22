@@ -49,10 +49,11 @@ namespace FileParser
             {
                 parser = new CsvParser(path);
             }
-            else
+            else if (Path.GetExtension(path) == ".txt")
             {
                 parser = new TxtParser(path);
             }
+            parser = null;
         }
     }
 }
